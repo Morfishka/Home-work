@@ -18,7 +18,7 @@ SearchingElementInMatrix(matrix2D, m, n);
 
 void SearchingElementInMatrix(int[,] matrix, int m, int n)
 {
-if (m < 0 | m > matrix.GetLength(0) | n < 0 | n > matrix.GetLength(1))
+if (m < 0 | m >= matrix.GetLength(0) | n < 0 | n >= matrix.GetLength(1))
             {
                 Console.WriteLine("Такого элемента в матрице нет.");
             }

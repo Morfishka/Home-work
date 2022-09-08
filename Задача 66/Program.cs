@@ -8,21 +8,14 @@ int M = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите максимальное значение: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
-void SumOfNumbers(int M, int N)
+ if (N < M)
+    {int t = N; N = M; M = t;}
+
+int SumOfNumbers(int M, int N)
 {
-    int sum = 0;
-    if (N < M)
-    {
-        int t = N;
-        N = M;
-        M = t; 
-    }
-    
-    for (int i = M; i <= N; i++)
-    {
-        sum += i;
-    } 
-    Console.WriteLine($"Сумма чисел в интервале от {M} до {N} равна {sum}");
+    int i = M;
+    if (i == N) return M;
+    else return i + SumOfNumbers(M + 1, N);
 }
 
-SumOfNumbers(M,N);
+Console.WriteLine($"Сумма чисел в интервале от {M} до {N} равна {SumOfNumbers(M,N)}");

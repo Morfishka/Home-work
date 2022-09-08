@@ -8,20 +8,31 @@ int M = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите максимальное значение: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
-void NumbersInTheInterval(int M, int N)
-{
-    if (N < M)
-    {
-        int t = N;
-        N = M;
-        M = t;
-        Console.WriteLine($"Числа от {M} до {N}:");
+if (N < M)
+    { int t = N; N = M; M = t;}
+
+// void NumbersInTheInterval(int M, int N)
+// {
+//     if (N < M)
+//     {
+//         int t = N;
+//         N = M;
+//         M = t;
+//         Console.WriteLine($"Числа от {M} до {N}:");
         
-    }
-    for (int i = M; i <= N; i++)
-    {
-        Console.Write($"{i} "); 
-    }
+//     }
+//     for (int i = M; i <= N; i++)
+//     {
+//         Console.Write($"{i} "); 
+//     }
+// }
+
+// Рекурсия
+
+string NumbersInTheInterval(int M, int N)
+{
+    if (M > N) return "";
+    else return $"{M} " + NumbersInTheInterval(M+1, N); 
 }
 
-NumbersInTheInterval(M,N);
+Console.WriteLine(NumbersInTheInterval(M,N));
